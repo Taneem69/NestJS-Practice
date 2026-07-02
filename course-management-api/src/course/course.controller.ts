@@ -1,7 +1,47 @@
-import { Controller } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Put,
+  Patch,
+  Delete,
+  Param,
+  Body,
+} from '@nestjs/common';
 import { CourseService } from './course.service';
 
 @Controller('course')
 export class CourseController {
   constructor(private readonly courseService: CourseService) {}
+
+  @Get()
+  getAllCourses(): string {
+    return this.courseService.getAllCourses();
+  }
+
+  @Get(':id')
+  getCourseById(@Param('id') id: string): string {
+    return this.courseService.getCourseById(id);
+  }
+
+  @Post()
+  createCourse(@Body() body: any): string {
+    // The body is not used per requirement (simple string response)
+    return this.courseService.createCourse();
+  }
+
+  @Put(':id')
+  updateCourse(@Param('id') id: string, @Body() body: any): string {
+    return this.courseService.updateCourse(id);
+  }
+
+  @Patch(':id')
+  patchCourse(@Param('id') id: string, @Body() body: any): string {
+    return this.courseService.patchCourse(id);
+  }
+
+  @Delete(':id')
+  deleteCourse(@Param('id') id: string): string {
+    return this.courseService.deleteCourse(id);
+  }
 }
