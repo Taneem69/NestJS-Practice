@@ -5,28 +5,28 @@ import{UpdateCourseDto} from './dto/update-course.dto';
 
 @Injectable()
 export class CourseService {
-  getAllCourses(): string {
+  getAllCourses(){
     return {
       message: 'All courses fetched successfully',
       data: [],
     };
   }
 
-  getCourseById(id: string): string {
+  getCourseById(id: string){
     return {
       message: 'Course fetched successfully',
       id,
     };
   }
 
-  createCourse(): string {
+  createCourse(){
     return {
       message: 'Course created successfully',
       data: createCourseDto, // returns the whole DTO
     };
   }
 
-  updateCourse(id: string): string {
+  updateCourse(id: string){
     return{
       message: 'Course updated successfully',
       id,
@@ -34,7 +34,7 @@ export class CourseService {
     };
   }
 
-  patchCourse(id: string): string {
+  patchCourse(id: string){
     // For patch, we could return only the fields that were actually updated.
     // Since PartialType makes all optional, we can list the keys that are present.
     const updatedFields = Object.keys(updateCourseDto).filter(
@@ -47,7 +47,7 @@ export class CourseService {
     };
   }
 
-  deleteCourse(id: string): string {
+  deleteCourse(id: string){
     return {
       message: 'Course deleted successfully',
       id,
