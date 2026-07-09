@@ -19,14 +19,14 @@ export class CourseService {
     };
   }
 
-  createCourse(){
+  createCourse(createCourseDto: CreateCourseDto){
     return {
       message: 'Course created successfully',
       data: createCourseDto, // returns the whole DTO
     };
   }
 
-  updateCourse(id: string){
+  updateCourse(id: string, updateCourseDto: UpdateCourseDto){
     return{
       message: 'Course updated successfully',
       id,
@@ -34,7 +34,7 @@ export class CourseService {
     };
   }
 
-  patchCourse(id: string){
+  patchCourse(id: string, updateCourseDto: UpdateCourseDto){
     // For patch, we could return only the fields that were actually updated.
     // Since PartialType makes all optional, we can list the keys that are present.
     const updatedFields = Object.keys(updateCourseDto).filter(
