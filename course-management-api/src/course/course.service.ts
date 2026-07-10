@@ -35,15 +35,10 @@ export class CourseService {
   }
 
   patchCourse(id: string, updateCourseDto: UpdateCourseDto){
-    // For patch, we could return only the fields that were actually updated.
-    // Since PartialType makes all optional, we can list the keys that are present.
-    const updatedFields = Object.keys(updateCourseDto).filter(
-      (key) => updateCourseDto[key] !== undefined,
-    );
     return {
       message: 'Course patched successfully',
       id,
-      updatedFields,
+      updatedFields: Object.keys(updateCourseDto),
     };
   }
 
