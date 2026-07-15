@@ -17,7 +17,7 @@ export class EnrollmentController {
   }
 
   @Post()
-  enrollment(@Body('studentName') studentName: string, @Body('courseId') courseId: string){
+  enrollStudent(@Body('studentName') studentName: string, @Body('courseId') courseId: string){
     return this.enrollmentService.enrollStudent(studentName, courseId);
   }
 }
